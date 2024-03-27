@@ -2,7 +2,7 @@
   "name": "base-app2",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "app",
+  "prefix": "app2",
   "sourceRoot": "apps/base-app2/src",
   "tags": [],
   "targets": {

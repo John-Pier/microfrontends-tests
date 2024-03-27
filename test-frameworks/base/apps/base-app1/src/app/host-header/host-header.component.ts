@@ -4,7 +4,7 @@ import { AsyncPipe, NgIf, NgOptimizedImage } from '@angular/common';
 
 @Component({
   standalone: true,
-  selector: 'app-host-header',
+  selector: 'app1-host-header',
   templateUrl: 'host-header.component.html',
   styleUrl: 'host-header.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
