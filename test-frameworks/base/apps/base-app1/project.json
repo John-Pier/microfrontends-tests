@@ -8,7 +8,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "baseHref": "/product-catalog/processing/",
+      "baseHref": "/app1/",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/base-app1",
@@ -53,6 +53,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "servePath": "/app1/"
+      },
       "configurations": {
         "production": {
           "buildTarget": "base-app1:build:production"

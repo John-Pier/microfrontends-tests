@@ -12,7 +12,7 @@ export class DataService {
     return of<UserData>({
       name: 'Пепе',
       permissions: '123,123,123,1231,23,1231,23',
-      avatarUrl: '/asets/img.png',
+      avatarUrl: 'assets/img.png',
     }).pipe(delay(150));
   }
 }

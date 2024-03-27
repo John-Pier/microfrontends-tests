@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
+    "serve:app1": "nx serve base-app1 --configuration production",
+    "serve:app2": "nx serve base-app2 --configuration production",
     "build:app1": "nx build base-app1 --configuration production",
     "build:app2": "nx build base-app2 --configuration production",
     "build:apps": "nx run-many --target=build --projects=base-app1,base-app2 --configuration production"
