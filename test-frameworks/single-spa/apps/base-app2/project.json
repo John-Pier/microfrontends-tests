@@ -8,24 +8,42 @@
   "targets": {
     "build": {
       "baseHref": "/app2/",
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular-builders/custom-webpack:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/base-app2",
         "index": "apps/base-app2/src/index.html",
-        "main": "apps/base-app2/src/main.ts",
-        "polyfills": ["zone.js"],
+        "main": "apps/base-app2/src/main.single-spa.ts",
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/base-app2/tsconfig.app.json",
         "inlineStyleLanguage": "less",
         "assets": [
           "apps/base-app2/src/favicon.ico",
           "apps/base-app2/src/assets"
         ],
-        "styles": ["apps/base-app2/src/styles.less"],
-        "scripts": []
+        "styles": [
+          "apps/base-app2/src/styles.less"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/base-app2/extra-webpack.config.js",
+          "libraryName": "base-app2",
+          "libraryTarget": "umd"
+        },
+        "deployUrl": "http://localhost:4202/"
       },
       "configurations": {
         "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/base-app2/src/environments/environment.ts",
+              "with": "apps/base-app2/src/environments/environment.prod.ts"
+            }
+          ],
           "budgets": [
             {
               "type": "initial",
@@ -38,7 +56,7 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "none"
         },
         "development": {
           "buildOptimizer": false,
@@ -46,13 +64,14 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "outputHashing": "none"
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular-builders/custom-webpack:dev-server",
       "options": {
         "servePath": "/app2/"
       },
@@ -77,7 +96,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/base-app2/jest.config.ts"
       }
