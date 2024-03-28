@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   standalone: true,
   selector: 'app1-empty-route',
-  template: '----',
+  template: '',
 })
 export class EmptyRouteComponent {}

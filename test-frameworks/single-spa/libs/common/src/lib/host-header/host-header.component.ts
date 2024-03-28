@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from './data.service';
 import { AsyncPipe, NgIf, NgOptimizedImage } from '@angular/common';
 
 @Component({
   standalone: true,
-  selector: 'app-host-header',
+  selector: 'lib-host-header',
   templateUrl: 'host-header.component.html',
   styleUrl: 'host-header.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,

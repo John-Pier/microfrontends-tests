@@ -5,17 +5,23 @@
   "scripts": {
     "nx": "nx",
     "adds": "npx nx g single-spa-angular:ng-add --keepExistingVersions --project host",
+
     "serve:app1": "nx serve base-app1 --configuration production",
     "serve:app2": "nx serve base-app2 --configuration production",
+
     "build:app1": "nx build base-app1 --configuration production",
     "build:app2": "nx build base-app2 --configuration production",
+
     "build:apps": "nx run-many --target=build --projects=base-app1,base-app2 --configuration production",
+
     "build:single-spa:base-app1": "nx build base-app1 --configuration production",
     "serve:single-spa:base-app1": "nx serve base-app1 --disable-host-check --port 4201 --live-reload false",
+
     "build:single-spa:base-app2": "nx build base-app2 --configuration production",
     "serve:single-spa:base-app2": "ng s --project base-app2 --disable-host-check --port 4202 --live-reload false",
-    "build:single-spa:host": "ng build host --configuration production",
-    "serve:single-spa:host": "ng s --project host --disable-host-check --port 4200 --live-reload false"
+
+    "build:single-spa:host": "nx build host --configuration production",
+    "serve:single-spa:host": "nx serve host --disable-host-check --port 4200 --live-reload false"
   },
   "private": true,
   "dependencies": {

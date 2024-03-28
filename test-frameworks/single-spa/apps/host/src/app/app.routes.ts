@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import {EmptyRouteComponent} from "./empty-route/empty-route.component";
 
 export const appRoutes: Route[] = [
   {
@@ -6,7 +7,7 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '**',
-        loadChildren: ( ) => import('./host/spa-host.module').then(m => m.SpaHostModule),
+        loadChildren: ( ) => import('./host/routes').then(m => m.spaRoutes),
         data: { app: 'base-app1' }
       }
     ]
@@ -16,9 +17,10 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '**',
-        loadChildren: ( ) => import('./host/spa-host.module').then(m => m.SpaHostModule),
+        loadChildren: ( ) => import('./host/routes').then(m => m.spaRoutes),
         data: { app: 'base-app2' }
       }
     ]
-  }
+  },
+  { path: '**', component: EmptyRouteComponent }
 ];

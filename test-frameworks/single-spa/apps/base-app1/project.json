@@ -15,7 +15,7 @@
       "options": {
         "outputPath": "dist/apps/base-app1",
         "index": "apps/base-app1/src/index.html",
-        "main": "apps/base-app1/src/main.single-spa.ts",
+        "main": "apps/base-app1/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
@@ -32,8 +32,7 @@
           "path": "apps/base-app1/extra-webpack.config.js",
           "libraryName": "base-app1",
           "libraryTarget": "umd"
-        },
-        "deployUrl": "http://localhost:4201/"
+        }
       },
       "configurations": {
         "production": {

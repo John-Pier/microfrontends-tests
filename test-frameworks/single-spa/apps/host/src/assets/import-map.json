@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "base-app1": "//localhost:4201/base-app1.js",
+    "base-app2": "//localhost:4202/base-app2.js"
+  }
+}

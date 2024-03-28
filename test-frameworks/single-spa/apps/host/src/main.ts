@@ -1,7 +1,11 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import {registerApplication, start} from "single-spa";
+import {appId, bootstrap, mount, unmount} from "./main.single-spa";
 
-bootstrapApplication(AppComponent, appConfig).catch((err) =>
-  console.error(err)
+registerApplication(
+  appId,
+  () => import('./main.single-spa'),
+  () => true,
+  { bootstrap, mount, unmount }
 );
+
+start();
