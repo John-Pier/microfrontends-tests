@@ -11,17 +11,14 @@
 
     "build:app1": "nx build base-app1 --configuration production",
     "build:app2": "nx build base-app2 --configuration production",
+    "build:navbar": "nx build navbar --configuration production",
 
     "build:apps": "nx run-many --target=build --projects=base-app1,base-app2 --configuration production",
 
-    "build:single-spa:base-app1": "nx build base-app1 --configuration production",
-    "serve:single-spa:base-app1": "nx serve base-app1 --disable-host-check --port 4201 --live-reload false",
-
-    "build:single-spa:base-app2": "nx build base-app2 --configuration production",
-    "serve:single-spa:base-app2": "ng s --project base-app2 --disable-host-check --port 4202 --live-reload false",
-
-    "build:single-spa:host": "nx build host --configuration production",
-    "serve:single-spa:host": "nx serve host --disable-host-check --port 4200 --live-reload false"
+    "serve:base-app1": "static-server dist/apps/base-app1/ -p 4201  --cors '*'",
+    "serve:base-app2": "static-server dist/apps/base-app2/ -p 4202  --cors '*'",
+    "serve:navbar": "static-server dist/apps/navbar/ -p 4300  --cors '*' --not-found dist/apps/navbar/index.html",
+    "serve:host": "static-server apps/host/ -p 4200  --cors '*'  --not-found apps/host/index.html"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +40,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "static-server": "^2.2.1",
     "@angular-builders/custom-webpack": "~17.0.1",
     "@angular-devkit/build-angular": "~17.2.0",
     "@angular-devkit/core": "~17.2.0",

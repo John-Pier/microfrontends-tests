@@ -1,41 +1,49 @@
 {
-  "name": "base-app1",
+  "name": "navbar",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "app1",
-  "sourceRoot": "apps/base-app1/src",
+  "prefix": "navbar",
+  "sourceRoot": "apps/navbar/src",
   "tags": [],
   "targets": {
     "build": {
+      "baseHref": "/",
       "executor": "@angular-builders/custom-webpack:browser",
-      "baseHref": "/app1/",
       "outputs": [
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/base-app1",
-        "index": "apps/base-app1/src/index.html",
-        "main": "apps/base-app1/src/main.single-spa.ts",
+        "outputPath": "dist/apps/navbar",
+        "index": "apps/navbar/src/index.html",
+        "main": "apps/navbar/src/main.single-spa.ts",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "apps/base-app1/tsconfig.app.json",
+        "tsConfig": "apps/navbar/tsconfig.app.json",
         "inlineStyleLanguage": "less",
         "assets": [
-          "apps/base-app1/src/favicon.ico",
-          "apps/base-app1/src/assets"
+          "apps/navbar/src/favicon.ico",
+          "apps/navbar/src/assets"
         ],
         "styles": [
-          "apps/base-app1/src/styles.less"
+          "apps/navbar/src/styles.less"
         ],
+        "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/base-app1/extra-webpack.config.js",
-          "libraryName": "base-app1",
+          "path": "apps/navbar/extra-webpack.config.js",
+          "libraryName": "navbar",
           "libraryTarget": "umd"
-        }
+        },
+        "deployUrl": "http://localhost:4300/"
       },
       "configurations": {
         "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/navbar/src/environments/environment.ts",
+              "with": "apps/navbar/src/environments/environment.prod.ts"
+            }
+          ],
           "budgets": [
             {
               "type": "initial",
@@ -48,13 +56,7 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "none",
-          "fileReplacements": [
-            {
-              "replace": "apps/base-app1/src/environments/environment.ts",
-              "with": "apps/base-app1/src/environments/environment.prod.ts"
-            }
-          ]
+          "outputHashing": "none"
         },
         "development": {
           "buildOptimizer": false,
@@ -71,14 +73,14 @@
     "serve": {
       "executor": "@angular-builders/custom-webpack:dev-server",
       "options": {
-        "servePath": "/app1/"
+        "servePath": "/"
       },
       "configurations": {
         "production": {
-          "buildTarget": "base-app1:build:production"
+          "buildTarget": "navbar:build:production"
         },
         "development": {
-          "buildTarget": "base-app1:build:development"
+          "buildTarget": "navbar:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -86,7 +88,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "base-app1:build"
+        "buildTarget": "navbar:build"
       }
     },
     "lint": {
@@ -98,7 +100,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/base-app1/jest.config.ts"
+        "jestConfig": "apps/navbar/jest.config.ts"
       }
     }
   }
