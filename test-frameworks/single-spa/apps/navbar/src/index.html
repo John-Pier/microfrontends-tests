@@ -13,25 +13,22 @@
       "imports": {
         "app1": "http://localhost:4201/main.js",
         "app2": "http://localhost:4202/main.js",
-        "navbar": "http://localhost:4300/main.js",
         "single-spa": "assets/single-spa.min.js",
         "single-spa-layout": "assets/single-spa-layout.min.js"
       }
     }
   </script>
   <link rel="preload" href="assets/single-spa.min.js" as="script" crossorigin="anonymous" />
-  <script src='assets/minified.js'></script>
-  <script src="assets/zone.js"></script>
-  <script src="assets/import-map-overrides.js"></script>
-  <script src="assets/system.min.js"></script>
-  <script src="assets/amd.min.js"></script>
-  <script src="assets/named-exports.js"></script>
-  <script src="assets/named-register.min.js"></script>
+<!--  <link rel="preload" href="assets/single-spa-layout.min.js" as="script" crossorigin="anonymous" />-->
+  <script type="module" src="assets/system.min.js"></script>
+  <script type="module" src="assets/amd.min.js"></script>
+  <script type="module" src='assets/minified.js'></script>
+  <script type="module" src="assets/zone.js"></script>
+  <script type="module" src="assets/import-map-overrides.js"></script>
+  <script type="module" src="assets/named-exports.js"></script>
+  <script type="module" src="assets/named-register.min.js"></script>
   <template id="single-spa-layout">
     <single-spa-router>
-<!--      <nav class="topnav">-->
-<!--        <application name="navbar"></application>-->
-<!--      </nav>-->
       <div class="main-content">
         <route path="app1">
           <application name="app1"></application>
@@ -45,23 +42,6 @@
 </head>
 <body>
   <navbar-root></navbar-root>
-  <script>
-    Promise.all([System.import('single-spa'), System.import('single-spa-layout')]).then(([singleSpa, singleSpaLayout]) => {
-      const { constructApplications, constructLayoutEngine, constructRoutes } = singleSpaLayout;
-      const { registerApplication, start } = singleSpa;
-
-      const routes = constructRoutes(document.querySelector('#single-spa-layout'));
-      const applications = constructApplications({
-        routes,
-        loadApp({ name }) {
-          return System.import(name);
-        },
-      });
-      const layoutEngine = constructLayoutEngine({ routes, applications });
-      applications.forEach(registerApplication);
-
-      start();
-    });
-  </script>
+  <script type="module" src="assets/init-spa.js"></script>
 </body>
 </html>

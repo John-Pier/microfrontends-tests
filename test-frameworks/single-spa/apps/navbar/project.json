@@ -8,14 +8,14 @@
   "targets": {
     "build": {
       "baseHref": "/",
-      "executor": "@angular-builders/custom-webpack:browser",
+      "executor": "@angular-devkit/build-angular:browser",
       "outputs": [
         "{options.outputPath}"
       ],
       "options": {
         "outputPath": "dist/apps/navbar",
         "index": "apps/navbar/src/index.html",
-        "main": "apps/navbar/src/main.single-spa.ts",
+        "main": "apps/navbar/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
@@ -28,13 +28,16 @@
         "styles": [
           "apps/navbar/src/styles.less"
         ],
-        "scripts": [],
-        "customWebpackConfig": {
-          "path": "apps/navbar/extra-webpack.config.js",
-          "libraryName": "navbar",
-          "libraryTarget": "umd"
-        },
-        "deployUrl": "http://localhost:4300/"
+        "scripts": [
+//         "apps/navbar/src/assets/minified.js",
+//         "apps/navbar/src/assets/zone.js",
+//         "apps/navbar/src/assets/import-map-overrides.js",
+//         "apps/navbar/src/assets/system.min.js",
+//         "apps/navbar/src/assets/amd.min.js",
+//         "apps/navbar/src/assets/minified.js",
+//         "apps/navbar/src/assets/named-exports.js",
+//         "apps/navbar/src/assets/named-register.min.js"
+        ]
       },
       "configurations": {
         "production": {
@@ -64,14 +67,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true,
-          "outputHashing": "none"
+          "namedChunks": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-builders/custom-webpack:dev-server",
+      "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
         "servePath": "/"
       },
