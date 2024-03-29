@@ -19,14 +19,15 @@
     }
   </script>
   <link rel="preload" href="assets/single-spa.min.js" as="script" crossorigin="anonymous" />
-<!--  <link rel="preload" href="assets/single-spa-layout.min.js" as="script" crossorigin="anonymous" />-->
-  <script type="module" src="assets/system.min.js"></script>
-  <script type="module" src="assets/amd.min.js"></script>
-  <script type="module" src='assets/minified.js'></script>
-  <script type="module" src="assets/zone.js"></script>
-  <script type="module" src="assets/import-map-overrides.js"></script>
-  <script type="module" src="assets/named-exports.js"></script>
-  <script type="module" src="assets/named-register.min.js"></script>
+  <link rel="preload" href="assets/single-spa-layout.min.js" as="script" crossorigin="anonymous" />
+  <script defer src="assets/system.min.js"></script>
+  <script defer src="assets/amd.min.js"></script>
+  <script defer src="assets/named-exports.js"></script>
+  <script defer src="assets/named-register.min.js"></script>
+  <script defer src='assets/minified.js'></script>
+  <script type="module" src="assets/zone.min.js"></script>
+  <script defer src="assets/import-map-overrides.js"></script>
+
   <template id="single-spa-layout">
     <single-spa-router>
       <div class="main-content">
@@ -42,6 +43,6 @@
 </head>
 <body>
   <navbar-root></navbar-root>
-  <script type="module" src="assets/init-spa.js"></script>
+  <script defer src="assets/init-spa.js"></script>
 </body>
 </html>
