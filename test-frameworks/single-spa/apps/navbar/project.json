@@ -29,14 +29,6 @@
           "apps/navbar/src/styles.less"
         ],
         "scripts": [
-//         "apps/navbar/src/assets/minified.js",
-//         "apps/navbar/src/assets/zone.js",
-//         "apps/navbar/src/assets/import-map-overrides.js",
-//         "apps/navbar/src/assets/system.min.js",
-//         "apps/navbar/src/assets/amd.min.js",
-//         "apps/navbar/src/assets/minified.js",
-//         "apps/navbar/src/assets/named-exports.js",
-//         "apps/navbar/src/assets/named-register.min.js"
         ]
       },
       "configurations": {
