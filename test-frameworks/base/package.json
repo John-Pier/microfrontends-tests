@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "server:1": "static-server '' -p 4200  --cors '*' --not-found index.html",
-    "server:2": "static-server '' -p 4200  --cors '*' --not-found index.html",
+    "server:1": "static-server dist/apps/base-app1 -p 4201  --cors '*' --not-found dist/apps/base-app1/index.html",
+    "server:2": "static-server dist/apps/base-app2 -p 4202  --cors '*' --not-found dist/apps/base-app2/index.html",
 
     "serve:app1": "nx serve base-app1 --configuration production",
     "serve:app2": "nx serve base-app2 --configuration production",
