@@ -1,8 +1,16 @@
 {
-  "name": "@angular-monorepo/source",
+  "name": "source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nx": "nx",
+    "start:host": "npx nx serve host",
+    "build:host": "nx build host",
+    "build:all": "nx run-many --target=build --projects=host,base-app1,base-app2 --configuration production",
+    "serve:base-app1": "static-server dist/apps/base-app1/ -p 4201  --cors '*'",
+    "serve:base-app2": "static-server dist/apps/base-app2/ -p 4202  --cors '*'",
+    "serve:host": "static-server dist/apps/host/ -p 4200  --cors '*'  --not-found dist/apps/host/index.html"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
@@ -19,6 +27,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "static-server": "^2.2.1",
     "@angular-devkit/build-angular": "~17.3.0",
     "@angular-devkit/core": "~17.3.0",
     "@angular-devkit/schematics": "~17.3.0",
