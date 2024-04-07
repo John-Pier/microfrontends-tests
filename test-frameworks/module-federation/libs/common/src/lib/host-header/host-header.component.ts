@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DataService } from './data.service';
 import { AsyncPipe, NgIf, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -8,7 +9,7 @@ import { AsyncPipe, NgIf, NgOptimizedImage } from '@angular/common';
   templateUrl: 'host-header.component.html',
   styleUrl: 'host-header.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, NgIf, NgOptimizedImage],
+  imports: [AsyncPipe, NgIf, NgOptimizedImage, RouterLink],
 })
 export class HostHeaderComponent {
   protected user$ = this.dataService.loadUserData();
