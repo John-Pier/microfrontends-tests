@@ -1,10 +1,12 @@
 {
-  "name": "@angular-monorepo/source",
-  "version": "0.0.0",
+  "name": "source",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve host"
+    "start": "nx serve host",
+    "serve:all": "nx run-many --target serve --all",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +24,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "@angular-architects/module-federation": "^17.0.8",
     "@angular-devkit/build-angular": "~17.3.0",
     "@angular-devkit/core": "~17.3.0",
     "@angular-devkit/schematics": "~17.3.0",
@@ -49,6 +52,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~14.0.3",
+    "ngx-build-plus": "^17.0.0",
     "nx": "18.2.3",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
