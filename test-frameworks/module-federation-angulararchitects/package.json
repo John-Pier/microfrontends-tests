@@ -6,6 +6,7 @@
     "nx": "nx",
     "start": "nx serve host",
     "serve:all": "nx run-many --target serve --all",
+    "build:all": "nx run-many --target build --all --configuration production",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
@@ -54,6 +55,7 @@
     "jest-preset-angular": "~14.0.3",
     "ngx-build-plus": "^17.0.0",
     "nx": "18.2.3",
+    "static-server": "^2.2.1",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
