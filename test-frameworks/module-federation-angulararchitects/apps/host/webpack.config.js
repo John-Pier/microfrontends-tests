@@ -1,14 +1,19 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const {
+  shareAll,
+  withModuleFederationPlugin,
+} = require('@angular-architects/module-federation/webpack');
 
 module.exports = withModuleFederationPlugin({
-
   remotes: {
-    "baseApp1": "http://localhost:4200/remoteEntry.js",
-    "baseApp2": "http://localhost:4200/remoteEntry.js",    
+    baseApp1: 'http://localhost:4201/remoteEntry.js',
+    baseApp2: 'http://localhost:4202/remoteEntry.js',
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    }),
   },
-
 });
