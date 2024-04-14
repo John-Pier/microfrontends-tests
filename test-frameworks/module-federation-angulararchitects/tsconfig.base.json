@@ -20,6 +20,9 @@
     "paths": {
       "@angular-monorepo/common": [
         "libs/common/src/index.ts"
+      ],
+      "@angular-monorepo/config": [
+        "libs/config/src/index.ts"
       ]
     }
   },

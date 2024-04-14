@@ -17,7 +17,7 @@
 
     "serve:base-app1": "static-server dist/apps/base-app1/ -p 4201  --cors '*'",
     "serve:base-app2": "static-server dist/apps/base-app2/ -p 4202  --cors '*'",
-    "serve:navbar": "static-server dist/apps/navbar/ -p 4300  --cors '*' --not-found dist/apps/navbar/index.html",
+    "serve:navbar": "static-server dist/apps/navbar/ -p 4300  --cors '*' --not-found dist/apps/navbar/index.html"
   },
   "private": true,
   "dependencies": {

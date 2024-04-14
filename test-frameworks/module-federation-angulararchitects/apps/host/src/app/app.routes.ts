@@ -10,7 +10,6 @@ export const appRoutes: Route[] = [
         remoteEntry: 'http://localhost:4201/remoteEntry.js',
         exposedModule: './baseApp1',
       }).then((m) => {
-        console.log(m);
         return m['AppComponent'];
       });
     },
