@@ -1,0 +1,9 @@
+{
+  "name": "root",
+  "scripts": {
+    "nx": "nx"
+  },
+  "dependencies": {
+    "nx": "^18.2.4"
+  }
+}

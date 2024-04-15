@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MFA serve:host" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/test-frameworks/module-federation-angulararchitects/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="serve:host" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

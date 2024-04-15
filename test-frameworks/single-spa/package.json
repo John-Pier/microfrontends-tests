@@ -13,7 +13,7 @@
     "build:app2": "nx build base-app2 --configuration production",
     "build:navbar": "nx build navbar --configuration production",
 
-    "build:apps": "nx run-many --target=build --projects=base-app1,base-app2 --configuration production",
+    "build:apps": "nx run-many --target=build --projects=navbar,base-app1,base-app2 --configuration production",
 
     "serve:base-app1": "static-server dist/apps/base-app1/ -p 4201  --cors '*'",
     "serve:base-app2": "static-server dist/apps/base-app2/ -p 4202  --cors '*'",
