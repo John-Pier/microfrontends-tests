@@ -1,0 +1,32 @@
+.node-modules-cache: &node-modules-cache
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+  policy: pull
+
+.npm-cache:
+  cache:
+    <<: *node-modules-cache
+
+.npm-ci:
+  image: $NODE_IMAGE
+  variables:
+    CACHE_FALLBACK_KEY: $CI_DEFAULT_BRANCH
+    CYPRESS_INSTALL_BINARY: 0
+  script:
+    - npm -v
+    - node -v
+    - npm ci --cache .npm --prefer-offline --no-audit
+  cache:
+    - <<: *node-modules-cache
+      policy: push
+    - key: $CI_COMMIT_REF_SLUG
+      paths:
+        - .npm/
+      policy: pull-push
+
+.node-environment:
+  image: $NODE_IMAGE
+  extends: .npm-cache

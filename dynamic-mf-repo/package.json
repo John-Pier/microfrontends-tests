@@ -5,7 +5,9 @@
   "scripts": {
     "nx": "nx",
     "ng": "nx",
-    "gen": "npm run nx g @nx/angular:app mf-app2 --routing --style=less"
+    "gen:library": "npm run nx g @nx/angular:library --buildable=true --changeDetection=OnPush --compilationMode=partial --displayBlock=true --style=less",
+    "gen:app": "npm run nx g @nx/angular:app --routing --style=less --displayBlock=tru",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +25,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "@angular-architects/module-federation": "^17.0.8",
     "@angular-devkit/build-angular": "~17.3.0",
     "@angular-devkit/core": "~17.3.0",
     "@angular-devkit/schematics": "~17.3.0",
@@ -50,6 +53,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~14.0.3",
+    "ngx-build-plus": "^17.0.0",
     "nx": "18.3.4",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",

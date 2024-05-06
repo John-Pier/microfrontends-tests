@@ -7,18 +7,31 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/mf-app2",
         "index": "apps/mf-app2/src/index.html",
         "main": "apps/mf-app2/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/mf-app2/tsconfig.app.json",
         "inlineStyleLanguage": "less",
-        "assets": ["apps/mf-app2/src/favicon.ico", "apps/mf-app2/src/assets"],
-        "styles": ["apps/mf-app2/src/styles.less"],
-        "scripts": []
+        "assets": [
+          "apps/mf-app2/src/favicon.ico",
+          "apps/mf-app2/src/assets"
+        ],
+        "styles": [
+          "apps/mf-app2/src/styles.less"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/mf-app2/webpack.config.js"
+        },
+        "commonChunk": false
       },
       "configurations": {
         "production": {
@@ -34,7 +47,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/mf-app2/webpack.prod.config.js"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -48,7 +64,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "mf-app2:build:production"
@@ -57,12 +73,17 @@
           "buildTarget": "mf-app2:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "ngx-build-plus:extract-i18n",
       "options": {
-        "buildTarget": "mf-app2:build"
+        "buildTarget": "mf-app2:build",
+        "extraWebpackConfig": "apps/mf-app2/webpack.config.js"
       }
     },
     "lint": {
@@ -70,7 +91,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/mf-app2/jest.config.ts"
       }

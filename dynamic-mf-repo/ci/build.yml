@@ -1,0 +1,8 @@
+build-host:
+  stage: build
+
+build-mf-app1:
+  stage: build
+
+build-mf-app2:
+  stage: build

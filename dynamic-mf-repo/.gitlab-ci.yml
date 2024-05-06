@@ -1,0 +1,16 @@
+include:
+  - local: ci/jobs/build.yml
+
+variables:
+  $NODE_IMAGE: ....
+  ALLURE_LAUNCH_NAME: ${CI_COMMIT_REF_NAME}_pipeline_${CI_PIPELINE_ID}
+  ....: ....
+
+stages:
+  - prepare
+  - build
+  - test
+  - e2e
+  - report
+  - deploy
+  - publish
