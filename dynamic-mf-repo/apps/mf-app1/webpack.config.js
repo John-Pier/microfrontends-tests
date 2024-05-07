@@ -6,8 +6,8 @@ const {
 module.exports = withModuleFederationPlugin({
   name: 'mf-app1',
   exposes: {
-    './Component': './exposed/app/app.component.ts',
-    './Guard': './exposed/guard/Guard.ts',
+    './App': './exposed/app/index.ts',
+    './Guard': './exposed/guard/app.guard.ts',
   },
   shared: {
     ...share({
