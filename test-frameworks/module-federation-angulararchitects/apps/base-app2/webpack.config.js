@@ -8,6 +8,7 @@ module.exports = withModuleFederationPlugin({
 
   exposes: {
     './baseApp2': './apps/base-app2/src/app/app.component.ts',
+    './baseApp2Guard': './apps/base-app2/src/app/guard/index.ts',
   },
 
   shared: {
