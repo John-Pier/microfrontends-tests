@@ -12,7 +12,5 @@ module.exports = withModuleFederationPlugin({
 
   shared: {
     ...mfMonorepoConfig,
-
-    // ...shareAll({})
   },
 });

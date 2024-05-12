@@ -9,7 +9,6 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: () => () => {
-        const router = inject(Router);
         const mfService = inject(MFService);
         return mfService.initialise();
       },

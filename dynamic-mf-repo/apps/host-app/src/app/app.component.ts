@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
+import { MfGuard } from './microfrontends/mf-guard';
 
 @Component({
   standalone: true,
@@ -10,9 +11,11 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   styleUrl: './app.component.less',
 })
 export class AppComponent implements OnInit {
-  title = 'host-app';
+  remotes$ = this.mfGuard.selectAvailableRemotes$();
 
-  constructor() {}
+  constructor(private readonly mfGuard: MfGuard) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mfGuard.checkAvailableRemotes$().subscribe();
+  }
 }
